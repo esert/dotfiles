@@ -1,0 +1,59 @@
+function my_timer_start {
+    my_timer=${my_timer:-$SECONDS}
+}
+
+function my_timer_stop {
+    my_time=$(( $SECONDS - $my_timer ))
+    if (( $my_time > 59 )); then
+	local s=$(( $my_time % 60 ))
+	local m=$(( $my_time / 60 ))
+	if (( $m > 59 )); then
+	    local m=$(( $m % 60 ))
+	    local h=$(( $my_time / 3600 ))
+	    my_time=$h':'$m':'$s
+	else
+	    my_time=$m':'$s
+	fi
+    fi
+    unset my_timer
+}
+
+function my_prompt {
+    local exit_status="$?"
+    my_timer_stop
+    local default_user="esert";
+    local RED="\[\033[1;31m\]"
+    local OFF="\[\033[0m\]"
+    if [ "$USER" != "$default_user" ]; then
+	if [ "$exit_status" != "0" ]; then
+	    if [ "$my_time" != "0" ]; then
+		PS1="${RED}USER: \u${OFF}\n${RED}ERROR: ${exit_status}${OFF}\n\h:\w[$my_time]\$ "
+	    else
+		PS1="${RED}USER: \u${OFF}\n${RED}ERROR: ${exit_status}${OFF}\n\h:\w\$ "
+	    fi
+	else
+	    if [ "$my_time" != "0" ]; then
+		PS1="${RED}USER: \u${OFF}\n\h:\w[$my_time]\$ "
+	    else
+		PS1="${RED}USER: \u${OFF}\n\h:\w\$ "
+	    fi
+	fi
+    else
+	if [ "$exit_status" != "0" ]; then
+	    if [ "$my_time" != "0" ]; then
+		PS1="${RED}ERROR: ${exit_status}${OFF}\n\h:\w[$my_time]\$ "
+	    else
+		PS1="${RED}ERROR: ${exit_status}${OFF}\n\h:\w\$ "
+	    fi
+	else
+	    if [ "$my_time" != "0" ]; then
+		PS1="\h:\w[$my_time]\$ "
+	    else
+		PS1="\h:\w\$ "
+	    fi
+	fi
+    fi
+}
+
+trap 'my_timer_start' DEBUG
+PROMPT_COMMAND=my_prompt
