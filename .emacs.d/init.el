@@ -18,6 +18,12 @@
 ; y/n instead of yes/no
 (fset 'yes-or-no-p 'y-or-n-p)
 
+; arrows to change active window
+(global-set-key (kbd "<up>") 'windmove-up)
+(global-set-key (kbd "<down>") 'windmove-down)
+(global-set-key (kbd "<right>") 'windmove-right)
+(global-set-key (kbd "<left>") 'windmove-left)
+
 ; use one of these names for shell buffer
 (setq shell-names '("s0" "s1" "s2" "s3" "s4" "s5" "s6" "s7" "s8" "s9"))
 (defun get-shell-name (names)
