@@ -24,7 +24,6 @@ case `uname -s` in
 	PATH=.:/opt/local/bin:/opt/local/sbin:$PATH
 	# gui alert
 	function alert {
-	    echo $*
 	    osascript -e 'tell app "System Events" to display dialog "'"$*"'"'
 	}
 	;;
