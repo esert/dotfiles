@@ -60,8 +60,8 @@
 	       "RO"
 	     "  ")))
   " "
-  ; host name
-  'system-name
+  ; host name upto first dot
+  '(:eval (replace-regexp-in-string "\\..*$" "" system-name))
   '(:eval (if buffer-file-name
 	      (let*
 		   ; file path
