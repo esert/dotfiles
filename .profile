@@ -15,9 +15,9 @@ shopt -s histappend
 # machine dependent
 case `uname -s` in
     Darwin)
-	alias ls='ls -G'
-	alias ll='ls -AlG'
-	alias la='ls -AG'
+	alias ls='TERM=xterm-256color ls -G'
+	alias ll='TERM=xterm-256color ls -AlG'
+	alias la='TERM=xterm-256color ls -AG'
 	# bash completion
 	[ -f /opt/local/etc/bash_completion ] && . /opt/local/etc/bash_completion
 	# set path
@@ -53,3 +53,7 @@ source ~/.prompt
 export PATH
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+
+echo ural altay balina | egrep "$HOSTNAME" && newgrp kunlp
+# rwxr-x---
+umask 027
