@@ -54,6 +54,5 @@ export PATH
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-echo ural altay balina | egrep "$HOSTNAME" && newgrp kunlp
 # rwxr-x---
 umask 027
