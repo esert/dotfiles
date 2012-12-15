@@ -89,10 +89,8 @@
 ; no delay in highlight
 (setq show-paren-delay 0)
 
-;(global-hl-line-mode 0)
-;(set-face-background 'hl-line "#222")
-;(set-face-foreground 'hl-line nil)
-
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
+; ruby mode for gemfiles and rakefiles
+(add-to-list 'auto-mode-alist (cons (concat (regexp-opt '("Gemfile" "Rakefile") t) "\\'") 'ruby-mode))
