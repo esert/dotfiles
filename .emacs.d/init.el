@@ -6,7 +6,9 @@
  auto-save-default nil
  make-backup-files nil
  show-trailing-whitespace t ;; highlight trailing whitespace
- require-final-newline t) ;; newline to end of buffer before save
+ require-final-newline t ;; newline to end of buffer before save
+ default-tab-width 4
+ )
 
 (menu-bar-mode -1) ;; no menu bar
 (fset 'yes-or-no-p 'y-or-n-p) ;; y/n instead of yes/no
@@ -86,6 +88,8 @@
 (require 'rhtml-mode)
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/external/go-mode"))
 (require 'go-mode-load)
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/external/yaml-mode"))
+(require 'yaml-mode)
 
 ;; ruby mode for gemfiles and rakefiles
 (add-to-list 'auto-mode-alist (cons (concat (regexp-opt '("Gemfile" "Rakefile") t) "\\'") 'ruby-mode))
