@@ -84,6 +84,8 @@
 (require 'js2-mode)
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/external/rhtml-mode"))
 (require 'rhtml-mode)
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/external/go-mode"))
+(require 'go-mode-load)
 
 ;; ruby mode for gemfiles and rakefiles
 (add-to-list 'auto-mode-alist (cons (concat (regexp-opt '("Gemfile" "Rakefile") t) "\\'") 'ruby-mode))
