@@ -21,6 +21,7 @@ case `uname -s` in
 	# bash completion
 	[ -f /opt/local/etc/bash_completion ] && . /opt/local/etc/bash_completion
 	# set path
+	export GOPATH=$HOME/go
 	PATH=.:/opt/local/bin:/opt/local/sbin:$PATH
 	# gui alert
 	function alert {
@@ -32,7 +33,9 @@ case `uname -s` in
 	alias ll='ls -Al --color=auto'
 	alias la='ls -A --color=auto'
 	[ -f /etc/bash_completion ] && . /etc/bash_completion
-	PATH=.:$PATH
+	export GOROOT=$HOME/go
+	export GOPATH=$HOME/gopath
+	PATH=.:$GOROOT/bin:$PATH
 	alias alert='xmessage'
 	;;
     *)
@@ -50,8 +53,7 @@ alias ssh='ssh -X'
 # change prompt
 source ~/.prompt
 
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
+export PATH
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
