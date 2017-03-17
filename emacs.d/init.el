@@ -110,6 +110,12 @@
    (quote
     (jsx-mode protobuf-mode rust-mode sml-mode js2-mode haskell-mode company))))
 
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . jsx-mode))
+;; jsx indentation size
+(setq jsx-indent-level 2)
+(setq js2-basic-offset 2)
+(setq css-indent-offset 2)
+
 ;; delete trailing whitespace before saving
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
