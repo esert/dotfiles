@@ -47,7 +47,7 @@ esac
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias emacs='emacs -nw'
+alias emacs='TERM=xterm-256color emacs -nw'
 alias ssh='ssh -X'
 
 # change prompt
@@ -58,4 +58,4 @@ export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # rwxr-x---
-umask 027
+umask 022

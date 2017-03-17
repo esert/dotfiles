@@ -98,3 +98,25 @@
 
 ;; rhtml mode for html.erb files
 (add-to-list 'auto-mode-alist (cons (concat (regexp-opt '(".rhtml" ".html.erb") t) "\\'") 'rhtml-mode))
+
+(setq-default indent-tabs-mode nil)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(js2-basic-offset 2)
+ '(package-selected-packages
+   (quote
+    (jsx-mode protobuf-mode rust-mode sml-mode js2-mode haskell-mode company))))
+
+;; delete trailing whitespace before saving
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; no tabs
+(setq-default indent-tabs-mode nil)
+
+;; google cpp style
+(load (expand-file-name "~/.emacs.d/external/google-c-style.el"))
+(add-hook 'c-mode-common-hook 'google-set-c-style)
+(add-hook 'c-mode-common-hook 'google-make-new-line-indent)
