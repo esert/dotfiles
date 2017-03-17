@@ -119,4 +119,4 @@
 ;; google cpp style
 (load (expand-file-name "~/.emacs.d/external/google-c-style.el"))
 (add-hook 'c-mode-common-hook 'google-set-c-style)
-(add-hook 'c-mode-common-hook 'google-make-new-line-indent)
+(add-hook 'c-mode-common-hook 'google-make-newline-indent)
