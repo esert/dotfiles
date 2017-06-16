@@ -1,3 +1,6 @@
+;; M-x-shell splits window in emacs 25, this prevents it
+(push (cons "\\*shell\\*" display-buffer--same-window-action) display-buffer-alist)
+
 (load (expand-file-name "~/.emacs.d/custom.el"))
 
 (setq-default
